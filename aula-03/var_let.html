@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      //   3 escopos: global, função e bloco
+      //   em casos de escopo GLOBAL a variável podem ser usadas em funções e dentro de blocos
+      //   (funciona como uma cascata)
+      //    em variáveis declaradas em escopo de funções a mesma fica disponível para os blocos dentro da função
+      //    e para a função em si
+
+      function x() {
+        console.log("dentro da função: " + serie);
+        if (true) {
+        }
+      }
+
+      if (true) {
+        var serie = "TWD";
+        console.log(serie);
+      }
+      console.log(serie);
+      x();
+    </script>
+  </head>
+  <body>
+    <div id="output"></div>
+  </body>
+</html>
+
+<!-- se a variavel for criada dentro da função ela nao sofre elevação, mesmo a função podendo 
+    acessar variáveis globais, o que não ocorre com uma variável declarada no escopo de bloco, essa
+    sofre elevação para o escopo GLOBAL  -->
+
+<!-- LET preserva o escopo onde a variável foi criada(é indicado uar Let em suas aplicações)-->
